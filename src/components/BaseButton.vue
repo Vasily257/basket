@@ -19,7 +19,7 @@ withDefaults(defineProps<Props>(), {
 })
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 .button {
   display: inline-flex;
   justify-content: space-between;
@@ -40,10 +40,6 @@ withDefaults(defineProps<Props>(), {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-
-  &:hover {
-    background-color: var(--color-background-soft);
-  }
 
   &:focus {
     outline: none;

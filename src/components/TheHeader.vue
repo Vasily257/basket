@@ -1,13 +1,12 @@
 <template>
   <header class="header">
     <img :src="logoImage" alt="Логотип сайта" width="450" height="450" class="header__logo" />
-
     <nav class="header__nav">
       <template v-for="link in NAV_LINKS" :key="link.href">
         <RouterLink :to="link.href" class="header__link">{{ link.text }}</RouterLink>
       </template>
     </nav>
-
+    <BaseDropdown :options="DROPDOWN_MENU_ITEMS" class="header__dropdown" />
     <div class="header__user-box">
       <span class="header__user-photo">{{ firstLetterOfName }}</span>
       <span class="header__user-name">{{ userName }}</span>
@@ -20,7 +19,8 @@ import { onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useHeaderStore } from '@/stores/header'
-import { NAV_LINKS } from '@/constants/index'
+import { BaseDropdown } from '@/components'
+import { NAV_LINKS, DROPDOWN_MENU_ITEMS } from '@/constants/index'
 
 // Инициализировать хранилище шапки сайта
 const headerStore = useHeaderStore()
@@ -63,6 +63,15 @@ onMounted(async () => {
     }
   }
 
+  &__dropdown.dropdown {
+    display: none;
+
+    @media screen and (min-width: 900px) {
+      display: block;
+      width: 200px;
+    }
+  }
+
   &__link {
     position: relative;
     text-decoration: none;
@@ -90,9 +99,9 @@ onMounted(async () => {
     color: var(--vt-c-white);
     border-radius: 50%;
     background-color: #dc145c;
+    font-size: 20px;
     font-weight: 700;
     line-height: 50px;
-    font-size: 20px;
   }
 
   &__user-name {

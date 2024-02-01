@@ -20,3 +20,12 @@ export const PROMO_CODE = 'hawkingbros'
 
 /** Ответ при успешном запросе */
 export const SUCCESSFUL_RESPONSE = 'Success'
+
+/** Опции внутри выпадающего меню */
+export const DROPDOWN_MENU_ITEMS = [
+  'Москва',
+  'Санкт-Петербург',
+  'Самара',
+  'Йошкар-Ола',
+  'Новокуйбышевск'
+]
