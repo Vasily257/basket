@@ -1,11 +1,11 @@
 <template>
-  <button :type="type" :class="classes.button">
+  <button :type="type" class="button">
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
-import { type ButtonHTMLAttributes, withDefaults, useCssModule } from 'vue'
+import { type ButtonHTMLAttributes, withDefaults } from 'vue'
 
 /** Типы пропсов */
 interface Props {
@@ -17,9 +17,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   type: 'button'
 })
-
-/** CSS-классы */
-const classes = useCssModule()
 </script>
 
 <style lang="scss" module>
@@ -38,14 +35,14 @@ const classes = useCssModule()
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  background-color: var(--neutral-white, #ffffff);
+  background-color: var(--color-background);
   font: inherit;
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
 
   &:hover {
-    background-color: var(--neutral-light, #f5f5f5);
+    background-color: var(--color-background-soft);
   }
 
   &:focus {
@@ -53,7 +50,7 @@ const classes = useCssModule()
   }
 
   &:focus-visible {
-    outline: 2px solid var(--focus-outline, #2f80ed);
+    outline: 2px solid #2f80ed;
     outline-offset: 2px;
   }
 }

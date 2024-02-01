@@ -37,6 +37,9 @@ export const useProductsStore = defineStore('products', () => {
     Total: 0
   })
 
+  /** Применен ли промокод */
+  const isPromoCode = ref(false)
+
   /** Продукты, сортированные по имени */
   const productsSortedByName = computed(() => {
     const sortedProducts = products.value
@@ -159,6 +162,8 @@ export const useProductsStore = defineStore('products', () => {
       if (data.Name === SUCCESSFUL_RESPONSE) {
         await getProducts()
         await getOrderInfo()
+
+        isPromoCode.value = true
       }
     } catch (error) {
       console.log(error)
@@ -200,6 +205,8 @@ export const useProductsStore = defineStore('products', () => {
 
       if (data.Name === SUCCESSFUL_RESPONSE) {
         await getOrderInfo()
+
+        isPromoCode.value = false
       }
     } catch (error) {
       console.log(error)
@@ -211,6 +218,7 @@ export const useProductsStore = defineStore('products', () => {
     productsSortedByName,
     viewedProducts,
     orderInfo,
+    isPromoCode,
     createBasket,
     getProducts,
     getOrderInfo,
