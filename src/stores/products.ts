@@ -40,6 +40,11 @@ export const useProductsStore = defineStore('products', () => {
   /** Применен ли промокод */
   const isPromoCode = ref(false)
 
+  /** Установить значение для статуса промокода */
+  const setPromoCodeStatus = (value: boolean) => {
+    isPromoCode.value = value
+  }
+
   /** Продукты, сортированные по имени */
   const productsSortedByName = computed(() => {
     const sortedProducts = products.value
@@ -163,7 +168,7 @@ export const useProductsStore = defineStore('products', () => {
         await getProducts()
         await getOrderInfo()
 
-        isPromoCode.value = true
+        setPromoCodeStatus(true)
       }
     } catch (error) {
       console.log(error)
@@ -206,7 +211,7 @@ export const useProductsStore = defineStore('products', () => {
       if (data.Name === SUCCESSFUL_RESPONSE) {
         await getOrderInfo()
 
-        isPromoCode.value = false
+        setPromoCodeStatus(false)
       }
     } catch (error) {
       console.log(error)
@@ -228,6 +233,7 @@ export const useProductsStore = defineStore('products', () => {
     addDiscount,
     deleteProducts,
     deleteProduct,
-    deleteDiscount
+    deleteDiscount,
+    setPromoCodeStatus
   }
 })

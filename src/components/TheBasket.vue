@@ -7,16 +7,29 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useProductsStore } from '@/stores/products'
 import { BasketProducts, BasketSummary } from '@/components'
 
 // Инициализировать хранилище товаров
 const productStore = useProductsStore()
-const { getProducts, getOrderInfo } = productStore
+const { productsSortedByName, orderInfo } = storeToRefs(productStore)
+const { createBasket, getProducts, getOrderInfo, setPromoCodeStatus } = productStore
 
 onMounted(async () => {
+  // Создать корзину, если товары отсутствуют
+  if (productsSortedByName.value.length === 0) {
+    await createBasket()
+  }
+
+  // Обновить данные по товарам
   await getProducts()
   await getOrderInfo()
+
+  // Указать, что промокод применен, если есть скидка
+  if (orderInfo.value.Discount > 0) {
+    setPromoCodeStatus(true)
+  }
 })
 </script>
 
