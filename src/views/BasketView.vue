@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TheBasket from '@/components/TheBasket.vue'
+import { TheBasket } from '@/components'
 </script>
 
 <template>

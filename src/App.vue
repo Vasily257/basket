@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import { useProductsStore } from '@/stores/products'
-import TheHeader from '@/components/TheHeader.vue'
+import { TheHeader } from '@/components'
 
 // Инициализировать хранилище товаров
 const productStore = useProductsStore()
