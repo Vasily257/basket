@@ -16,18 +16,18 @@
         </div>
         <div class="product__quantity-box">
           <TextButton
-            class="product__quantity-button product__quantity-button--plus"
-            @click="handleIncreaseButtonClick(product.Id)"
-            >+</TextButton
-          >
-          <span class="product__quantity">{{ product.Quantity }}</span>
-          <TextButton
-            class="product__quantity-button product__quantity-button--minus"
+            class="product__quantity-button"
             @click="handleDecreaseButtonClick(product.Id)"
             >-</TextButton
           >
-        </div>
+          <span class="product__quantity">{{ product.Quantity }}</span>
 
+          <TextButton
+            class="product__quantity-button"
+            @click="handleIncreaseButtonClick(product.Id)"
+            >+</TextButton
+          >
+        </div>
         <TextButton class="product__delete-button" @click="handleDeleteButtonClick(product.Id)"
           >Удалить товар
         </TextButton>
@@ -71,8 +71,8 @@ const handleDeleteButtonClick = (productId: Product['Id']) => {
 
 <style scoped lang="scss">
 .products {
-  height: fit-content;
   width: 100%;
+  height: fit-content;
   padding: 20px;
   border-radius: 10px;
   background-color: var(--color-background);
@@ -83,52 +83,133 @@ const handleDeleteButtonClick = (productId: Product['Id']) => {
 
   &__list {
     display: flex;
-    row-gap: 10px;
+    row-gap: 30px;
     flex-direction: column;
     flex-wrap: nowrap;
     margin: 0;
     padding: 0;
     list-style-type: none;
+
+    @media screen and (min-width: 600px) {
+      row-gap: 30px;
+    }
   }
 }
 
 .product {
-  display: flex;
+  display: grid;
+  align-items: start;
   column-gap: 10px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+  row-gap: 5px;
+  position: relative;
+
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: repeat(3, auto);
+
+  @media screen and (min-width: 450px) {
+    grid-template-columns: 100px 1fr auto;
+    grid-template-rows: 30px 1fr;
+  }
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 100px 1fr 100px auto;
+    grid-template-rows: 1fr;
+  }
+
+  &::before {
+    position: absolute;
+
+    top: calc(100% + 14.5px);
+    left: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border);
+  }
+
+  &:last-child {
+    &::before {
+      content: none;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+
+    @media screen and (min-width: 450px) {
+      grid-row: 1 / 3;
+    }
+
+    @media screen and (min-width: 600px) {
+      grid-row: 1 / 2;
+    }
+  }
 
   &__info-box {
     display: flex;
+    row-gap: 5px;
     flex-direction: column;
     flex-wrap: nowrap;
-    row-gap: 5px;
-    max-width: calc(100% - 400px);
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    @media screen and (min-width: 450px) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+    }
+
+    @media screen and (min-width: 600px) {
+      grid-row: 1 / 2;
+    }
   }
 
   &__quantity-box {
+    justify-self: start;
     display: flex;
-    column-gap: 10px;
+    column-gap: 5px;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 100px;
-    margin-left: auto;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 94px;
+
+    @media screen and (min-width: 450px) {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+      justify-self: end;
+    }
+
+    @media screen and (min-width: 600px) {
+      grid-row: 1 / 2;
+    }
   }
 
   &__quantity {
     display: inline-block;
-    width: 20px;
+    width: 28px;
     text-align: center;
   }
 
   &__quantity-button {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 27px;
   }
 
   &__delete-button {
-    margin-left: 10px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+
+    @media screen and (min-width: 450px) {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+
+    @media screen and (min-width: 600px) {
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+    }
   }
 }
 </style>

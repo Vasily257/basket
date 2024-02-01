@@ -42,7 +42,7 @@ onMounted(async () => {
   flex-wrap: nowrap;
   padding: 10px 20px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 900px) {
     padding: 20px 40px;
   }
 
@@ -53,10 +53,14 @@ onMounted(async () => {
   }
 
   &__nav {
-    display: flex;
-    column-gap: 10px;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: none;
+
+    @media screen and (min-width: 900px) {
+      display: flex;
+      column-gap: 10px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
   }
 
   &__link {

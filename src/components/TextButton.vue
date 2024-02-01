@@ -20,9 +20,17 @@ withDefaults(defineProps<Props>(), {
 })
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 .text-button {
   border-radius: 5px;
-  background-color: var(--color-background-mute);
+  background-color: var(--color-background-soft);
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  padding: 5px 10px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: var(--color-background-mute);
+  }
 }
 </style>

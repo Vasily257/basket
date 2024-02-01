@@ -69,11 +69,15 @@ const handleDeleteProductsButtonClick = () => {
   display: flex;
   row-gap: 15px;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
   height: fit-content;
   padding: 20px;
   border-radius: 10px;
   background-color: var(--color-background);
+
+  @media screen and (min-width: 900px) {
+    width: 300px;
+  }
 
   &__title {
     line-height: 1.2;

@@ -31,7 +31,7 @@ withDefaults(defineProps<Props>(), {
   cursor: pointer;
   text-align: center;
   text-transform: inherit;
-  color: var(--neutral-dark, #1d1e25);
+  color: var(--color-text);
   border-width: 1px;
   border-style: solid;
   border-color: transparent;

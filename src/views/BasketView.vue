@@ -11,12 +11,13 @@ import { TheBasket } from '@/components'
 
 <style scoped lang="scss">
 .basket-view {
-  min-height: calc(100vh - 130px);
-  padding: 20px;
+  min-height: calc(100vh - 110px);
+  padding: 10px;
   background-color: var(--color-background-mute);
 
-  @media screen and (min-width: 768px) {
-    padding: 40px;
+  @media screen and (min-width: 900px) {
+    padding: 20px;
+    min-height: calc(100vh - 130px);
   }
 }
 </style>

@@ -24,10 +24,17 @@ onMounted(async () => {
 .basket {
   position: relative;
   display: flex;
-  column-gap: 20px;
-  flex-direction: row;
+  column-gap: 0;
+  row-gap: 10px;
+  flex-direction: column;
   flex-wrap: nowrap;
   max-width: 1024px;
   margin: 0 auto;
+
+  @media screen and (min-width: 900px) {
+    column-gap: 20px;
+    row-gap: 0;
+    flex-direction: row;
+  }
 }
 </style>
