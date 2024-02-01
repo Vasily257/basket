@@ -51,7 +51,7 @@ const { userId } = storeToRefs(headerStore)
 // Инициализировать хранилище товаров
 const productStore = useProductsStore()
 const { productsSortedByName, orderInfo } = storeToRefs(productStore)
-const { incrementQuantity, decrementQuantity, deleteProduct } = productStore
+const { incrementQuantity, decrementQuantity, deleteProduct, deleteProducts } = productStore
 
 /** Обработать нажатие на кнопку увеличения товаров */
 const handleIncreaseButtonClick = (productId: Product['Id']) => {
@@ -66,6 +66,11 @@ const handleDecreaseButtonClick = (productId: Product['Id']) => {
 /** Обработать нажатие на кнопку удаления товара */
 const handleDeleteButtonClick = (productId: Product['Id']) => {
   deleteProduct({ ProductId: productId, UserGuid: userId.value })
+
+  // Очистить корзину, если удаляется последний товар
+  if (productsSortedByName.value.length === 1) {
+    deleteProducts()
+  }
 }
 </script>
 

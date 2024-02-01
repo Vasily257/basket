@@ -214,7 +214,6 @@ export const useProductsStore = defineStore('products', () => {
   }
 
   return {
-    products,
     productsSortedByName,
     viewedProducts,
     orderInfo,
