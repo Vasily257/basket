@@ -18,18 +18,19 @@
           <TextButton
             class="product__quantity-button"
             @click="handleDecreaseButtonClick(product.Id)"
-            >-</TextButton
           >
+            &minus;
+          </TextButton>
           <span class="product__quantity">{{ product.Quantity }}</span>
-
           <TextButton
             class="product__quantity-button"
             @click="handleIncreaseButtonClick(product.Id)"
-            >+</TextButton
           >
+            &plus;
+          </TextButton>
         </div>
-        <TextButton class="product__delete-button" @click="handleDeleteButtonClick(product.Id)"
-          >Удалить товар
+        <TextButton class="product__delete-button" @click="handleDeleteButtonClick(product.Id)">
+          Удалить товар
         </TextButton>
       </li>
     </ul>

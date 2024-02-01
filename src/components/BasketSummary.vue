@@ -10,18 +10,18 @@
         добавлен
       </p>
       <p class="summary__promo-discount">Скидка: {{ orderInfo.Discount }} руб.</p>
-      <TextButton class="summary__promo-button" @click="handleAddPromoCodeButtonClick(PROMO_CODE)"
-        >Добавить промокод
+      <TextButton class="summary__promo-button" @click="handleAddPromoCodeButtonClick(PROMO_CODE)">
+        Добавить промокод
       </TextButton>
-      <TextButton class="summary__promo-button" @click="handleDeletePromoCodeButtonClick"
-        >Удалить промокод
+      <TextButton class="summary__promo-button" @click="handleDeletePromoCodeButtonClick">
+        Удалить промокод
       </TextButton>
     </div>
     <p class="summary__final-price">Итого: {{ finalPrice }} руб.</p>
     <div class="summary__order">
       <TextButton class="summary__order-button">Оформить заказ</TextButton>
-      <TextButton @click="handleDeleteProductsButtonClick" class="summary__order-button"
-        >Очистить корзину
+      <TextButton @click="handleDeleteProductsButtonClick" class="summary__order-button">
+        Очистить корзину
       </TextButton>
     </div>
   </div>
