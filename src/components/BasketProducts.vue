@@ -123,7 +123,6 @@ const handleDeleteButtonClick = (productId: Product['Id']) => {
 
   &::before {
     position: absolute;
-
     top: calc(100% + 14.5px);
     left: 0;
     content: '';
@@ -178,7 +177,6 @@ const handleDeleteButtonClick = (productId: Product['Id']) => {
     flex-wrap: nowrap;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    width: 94px;
 
     @media screen and (min-width: 450px) {
       grid-column: 3 / 4;
@@ -194,12 +192,16 @@ const handleDeleteButtonClick = (productId: Product['Id']) => {
   &__quantity {
     display: inline-block;
     width: 28px;
+    line-height: 28px;
     text-align: center;
   }
 
   &__quantity-button {
     width: 28px;
-    height: 27px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__delete-button {

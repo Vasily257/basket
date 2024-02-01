@@ -46,7 +46,7 @@ withDefaults(defineProps<Props>(), {
   }
 
   &:focus-visible {
-    outline: 2px solid #2f80ed;
+    outline: 2px solid var(--color-outline-in-focus);
     outline-offset: 2px;
   }
 }

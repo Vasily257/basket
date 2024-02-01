@@ -76,9 +76,19 @@ onMounted(async () => {
     position: relative;
     text-decoration: none;
     color: var(--color-text);
+    border-radius: 5px;
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-outline-in-focus);
+      outline-offset: 2px;
     }
   }
 
@@ -96,7 +106,7 @@ onMounted(async () => {
     width: 50px;
     height: 50px;
     text-align: center;
-    color: var(--vt-c-white);
+    color: var(--color-background);
     border-radius: 50%;
     background-color: #dc145c;
     font-size: 20px;

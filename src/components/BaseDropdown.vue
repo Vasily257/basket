@@ -13,8 +13,6 @@
       @keyup.down="openMenu"
     />
 
-    <span v-if="props.isErrorShown" class="dropdown__error-text">{{ errorText }}</span>
-
     <!-- Скрытое выпадающее меню -->
     <Transition>
       <ul v-if="isMenuOpened" role="menu" :aria-labelledby="id" class="dropdown__menu">
@@ -51,10 +49,6 @@ import { BaseButton } from '@/components'
 interface Props {
   /** ID поля */
   id?: string
-  /** Текст ошибки */
-  errorText?: string
-  /** Показать ли ошибки */
-  isErrorShown?: boolean
   /** Значения внутри выпадающего меню */
   options?: string[]
 }
@@ -62,8 +56,6 @@ interface Props {
 /** Пропсы со значениями по умолчанию */
 const props = withDefaults(defineProps<Props>(), {
   id: '',
-  errorText: '',
-  isErrorShown: false,
   options: () => ['Раз', 'Два', 'Три']
 })
 
@@ -86,8 +78,7 @@ const menuItemButtons = ref<HTMLButtonElement[]>([])
 const principalButtonClass = computed(() => {
   return {
     'dropdown__principal-button': true,
-    'dropdown__principal-button--opened': isMenuOpened.value,
-    'dropdown__principal-button--error': props.isErrorShown
+    'dropdown__principal-button--opened': isMenuOpened.value
   }
 })
 
@@ -268,19 +259,19 @@ onBeforeUnmount(() => {
     cursor: pointer;
     text-align: left;
     text-transform: inherit;
-    color: #545454;
+    color: var(--color-text);
     border-width: 1px;
     border-style: solid;
-    border-color: #dddddd;
+    border-color: var(--color-border);
     border-radius: 5px;
-    background-color: transparent;
+    background-color: var(--color-background);
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     line-height: 1;
 
     &:hover {
-      border-color: #2f80ed;
+      border-color: var(--color-border-hover);
     }
 
     &:focus {
@@ -288,40 +279,12 @@ onBeforeUnmount(() => {
     }
 
     &:focus-visible {
-      border-color: #2f80ed;
-      caret-color: #2f80ed;
+      border-color: var(--color-border-hover);
     }
 
     &--opened {
-      border-color: #2f80ed;
+      border-color: var(--color-border-hover);
     }
-
-    &--placeholder {
-      color: #a9a9a9;
-    }
-
-    &--error {
-      color: #eb5757;
-      border-color: #eb5757;
-
-      &:hover {
-        border-color: #eb5757;
-      }
-
-      &:focus-visible {
-        border-color: #eb5757;
-        caret-color: #eb5757;
-      }
-    }
-  }
-
-  &__error-text {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    color: #eb5757;
-    font-size: 10px;
-    line-height: 1.6;
   }
 
   &__principal-button-icon {
@@ -349,7 +312,7 @@ onBeforeUnmount(() => {
     padding: 0;
     list-style-type: none;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: var(--color-background);
     box-shadow: 0 0 6px 0 rgba(148, 181, 225, 0.35);
     font-weight: 400;
   }
@@ -367,7 +330,7 @@ onBeforeUnmount(() => {
     &:focus {
       border-color: transparent;
       outline: none;
-      background-color: #eaf2fd;
+      background-color: var(--color-background-mute);
     }
 
     &--first {
