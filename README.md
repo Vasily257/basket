@@ -1,52 +1,22 @@
-# basket
+# Basket
+Этот проект — тестовое задание для вакансии «Middle frontend developer» компании [Hawking Bros](https://hawkingbros.com/).  
 
-This template should help get you started developing with Vue 3 in Vite.
+## Функциональность
+Проект формально является многостраничным приложением, где фактически есть одна страница — корзина.  
+На этой странице пользователь получает с сервера готовую корзину с товарами и может:
+- увеличивать и уменьшать количество товаров, а также удалять их
+- добавлять и удалять промокод, что управлять скидкой на товары
+- очищать корзину с товарами
 
-## Recommended IDE Setup
+## Особенности
+У проекта есть несколько особенностей:
+1. Проект написан на `Vue 3`, используется `Composition API` и `script setup`, а также `Pinia`.
+2. Дизайн сайта разработан самостоятельно, также сайт адаптирован под мобильные устройства.
+3. Фронтенд связан с бэкендом, который разворачивается локально с помощью Docker-образа.
+4. Код по возможности соответствует [рекомендациям Vue](https://v3.ru.vuejs.org/ru/style-guide/).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Технологический стек
+`Vue` `SCSS` `TypeScript` `Pinia` `Axios` `Vite`
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## Статус
+Проект завершен, нет планов по доработке.
